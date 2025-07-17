@@ -1,0 +1,35 @@
+# General
+.DS_Store
+*.log
+*.swp
+*.tmp
+*.bak
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+/backend/.env
+/backend/.venv/
+
+# Node.js / Frontend
+/frontend/node_modules/
+/frontend/.next/
+/frontend/out/
+/frontend/.env.local
+
+# Docker
+*.tar
+docker-compose.override.yml
+
+# Terraform (scoped to Infrastructure/)
+/Infrastructure/.terraform/
+/Infrastructure/*.tfstate
+/Infrastructure/*.tfstate.*
+/Infrastructure/terraform.tfvars
+/Infrastructure/terraform.tfvars.json
+/Infrastructure/.terraform.lock.hcl
+/Infrastructure/terraform*
+
+# VSCode
+.vscode/
