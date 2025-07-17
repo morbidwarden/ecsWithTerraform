@@ -18,7 +18,7 @@ pipeline {
         stage('Authenticate with ECR') {
             steps {
                 script {
-                    sh """
+                    bat """
                         aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin 464672143257.dkr.ecr.ap-south-1.amazonaws.com
                     """
                 }
@@ -28,7 +28,7 @@ pipeline {
         stage('Build & Push Backend Image') {
             steps {
                 script {
-                    sh """
+                    bat """
                         docker build -t $BACKEND_IMAGE:$IMAGE_TAG backend/
                         docker push $BACKEND_IMAGE:$IMAGE_TAG
                     """
@@ -39,7 +39,7 @@ pipeline {
         stage('Build & Push Frontend Image') {
             steps {
                 script {
-                    sh """
+                    bat """
                         docker build -t $FRONTEND_IMAGE:$IMAGE_TAG frontend/
                         docker push $FRONTEND_IMAGE:$IMAGE_TAG
                     """
