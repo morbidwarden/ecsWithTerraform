@@ -29,6 +29,7 @@ resource "aws_ecs_service" "frontend_svc" {
     cluster         = aws_ecs_cluster.main.id
     task_definition = aws_ecs_task_definition.frontend.arn
     desired_count   = var.app_count
+    force_new_deployment = true
     launch_type     = "FARGATE"
 
     network_configuration {
