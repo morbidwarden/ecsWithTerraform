@@ -50,6 +50,17 @@ pipeline {
                 }
             }
         }
+        stage('implementing infrastructure with terraform'){
+            steps {
+                dir('Infrastructure') {
+                    bat """
+                        terraform init
+                        terraform plan -out=tfplan
+                        terraform apply -auto-approve tfplan
+                    """
+                }
+            }
+        }
     }
 
     post {
