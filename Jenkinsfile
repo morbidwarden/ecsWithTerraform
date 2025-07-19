@@ -17,7 +17,7 @@ pipeline {
 
         stage('Authenticate with ECR') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'aws-ecr-creds', 
+                withCredentials([usernamePassword(credentialsId: 'aws-creds', 
                                                   usernameVariable: 'AWS_ACCESS_KEY_ID', 
                                                   passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     bat """
