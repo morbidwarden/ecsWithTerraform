@@ -46,7 +46,7 @@ export default function Home() {
           <p>{message}</p>
         </div>
         <div className="info">
-          <p>Backend URL: {process.env.NEXT_PUBLIC_API_URL}</p>
+          <p>Backend URL: ApplicationLoadBalancer-1211197852.ap-south-1.elb.amazonaws.com/api/health</p>
         </div>
       </main>
 
