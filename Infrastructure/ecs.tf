@@ -59,7 +59,7 @@ resource "aws_ecs_task_definition" "frontend" {
 [
   {
     "name": "frontendContainer",
-    "image": "464672143257.dkr.ecr.eu-north-1.amazonaws.com/devops-frontend",
+    "image": "464672143257.dkr.ecr.eu-north-1.amazonaws.com/devops-frontend:latest",
     "cpu": 512,
     "memory": 1024,
     "essential": true,
@@ -135,7 +135,7 @@ resource "aws_ecs_task_definition" "backend" {
 [
   {
     "name": "backendContainer",
-    "image": "464672143257.dkr.ecr.eu-north-1.amazonaws.com/devops-backend",
+    "image": "464672143257.dkr.ecr.eu-north-1.amazonaws.com/devops-backend:latest",
     "cpu": 512,
     "memory": 1024,
     "essential": true,
