@@ -51,13 +51,16 @@ pipeline {
             }
         }
         stage('implementing infrastructure with terraform'){
-            steps {
-                dir('Infrastructure') {
-                    bat """
-                        terraform init
-                        terraform plan -out=tfplan
-                        terraform apply -auto-approve tfplan
-                    """
+            steps {withCredentials([usernamePassword(credentialsId: 'aws-creds', 
+                                                  usernameVariable: 'AWS_ACCESS_KEY_ID', 
+                                                  passwordVariable: 'AWS_SECRET_ACCESS_KEY')]){
+                    dir('Infrastructure') {
+                        bat """
+                            terraform init
+                            terraform plan -out=tfplan -var="aws_access_key=%AWS_ACCESS_KEY_ID%" -var="aws_secret_key=%AWS_SECRET_ACCESS_KEY%"
+                            terraform apply -auto-approve tfplan
+                        """
+                    }
                 }
             }
         }
